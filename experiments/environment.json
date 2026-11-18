@@ -1,0 +1,14 @@
+{
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "torch": "2.8.0+cu128",
+  "tokenizers": "0.22.2",
+  "cuda_runtime": "12.8",
+  "cpu": "AMD Ryzen 9 5900X 12-Core Processor",
+  "transformers": "4.57.6",
+  "python": "3.11.17",
+  "dtype": "bfloat16",
+  "backend": "sdpa",
+  "cpu_threads": 2,
+  "topology": "同机同GPU；完整源KV经CPU序列化和TCP回环后恢复至GPU",
+  "warmup": "每任务3个合成非测试输入，每个8个诊断token；不计测试分母"
+}

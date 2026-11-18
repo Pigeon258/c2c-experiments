@@ -1,0 +1,69 @@
+{
+  "seed": 42,
+  "tasks": {
+    "gsm8k": {
+      "samples": 1319,
+      "filename": "gsm8k.jsonl",
+      "sha256": "3730d312f6e3440559ace48831e51066acaca737f6eabec99bccb9e4b3c39d14",
+      "url": "https://raw.githubusercontent.com/openai/grade-school-math/3101c7d5072418e28b9008a6636bde82a006892c/grade_school_math/data/test.jsonl"
+    },
+    "hotpotqa": {
+      "samples": 7405,
+      "filename": "hotpotqa.parquet",
+      "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+      "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/1908d6afbbead072334abe2965f91bd2709910ab/distractor/validation-00000-of-00001.parquet"
+    },
+    "humaneval": {
+      "samples": 164,
+      "filename": "humaneval.jsonl.gz",
+      "sha256": "b796127e635a67f93fb35c04f4cb03cf06f38c8072ee7cee8833d7bee06979ef",
+      "url": "https://raw.githubusercontent.com/openai/human-eval/6d43fb980f9fee3c892a914eda09951f772ad10d/data/HumanEval.jsonl.gz"
+    }
+  },
+  "scoring": {
+    "gsm8k": "原作者/T2T首个####正则匹配、去逗号字符串精确比较",
+    "hotpotqa": "整段原生Answer EM/F1",
+    "humaneval": "原始补全不修复；隔离内3秒墙钟/4秒CPU/2GiB，外层8秒；每题一次",
+    "failure_denominator": "全部预选题固定分母；OOM/容量失败计0；未生成/隔离失败保持未完成",
+    "python_target": "3.11.17"
+  },
+  "environment_target": {
+    "python": "3.11.17",
+    "torch": "2.8.0+cu128",
+    "transformers": "4.57.6",
+    "tokenizers": "0.22.2"
+  },
+  "selection_mode": "full_source_order",
+  "generation": {
+    "dtype": "bfloat16",
+    "attention": "sdpa",
+    "batch_size": 1,
+    "thinking": false,
+    "do_sample": false,
+    "num_beams": 1,
+    "seed": 42,
+    "context_capacity": 40960,
+    "max_new_tokens": 1024,
+    "eos_token_ids": [
+      151643,
+      151645
+    ]
+  },
+  "directions": {
+    "M1": {
+      "receiver": "Qwen3-1.7B",
+      "sender": "Qwen3-0.6B",
+      "checkpoint_step": 1900
+    },
+    "M2": {
+      "receiver": "Qwen3-4B",
+      "sender": "Qwen3-0.6B",
+      "checkpoint_step": 1929
+    },
+    "M3": {
+      "receiver": "Qwen3-0.6B",
+      "sender": "Qwen3-4B",
+      "checkpoint_step": 1900
+    }
+  }
+}

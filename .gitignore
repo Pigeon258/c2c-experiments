@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+.venv*/
+/third_party/C2C/
+/data/
+/models/
+/runs/
+*.safetensors
+*.pt

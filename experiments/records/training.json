@@ -1,0 +1,26 @@
+{
+  "M1": {
+    "step": 1929,
+    "samples": 493815,
+    "validation_rounds": 20,
+    "best_step": 1900,
+    "best_validation_loss": 0.6953338290101136,
+    "final_validation_loss": 0.6953563322186156
+  },
+  "M3": {
+    "step": 1929,
+    "samples": 493815,
+    "validation_rounds": 20,
+    "best_step": 1900,
+    "best_validation_loss": 0.838839809647198,
+    "final_validation_loss": 0.8388418779702839
+  },
+  "M2": {
+    "step": 1929,
+    "samples": 493815,
+    "validation_rounds": 20,
+    "best_step": 1929,
+    "best_validation_loss": 0.6059688144254454,
+    "final_validation_loss": 0.6059688144254454
+  }
+}
